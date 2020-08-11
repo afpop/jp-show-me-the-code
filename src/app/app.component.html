@@ -1,0 +1,24 @@
+<mat-toolbar>
+  <img class="logo" src="../assets/img/logo.png">
+  <span class="example-spacer"></span>
+  <button mat-icon-button [matMenuTriggerFor]="menuAjuda">
+    <mat-icon>help</mat-icon>
+  </button>
+  <mat-menu #menuAjuda="matMenu">
+    <p style="padding: 15px">
+      Queridos <b>13 milhões</b> de clientes, qualquer dúvida, sugestão ou reclamação entrar em contato no WhatsApp
+      <b>(12)
+        98858-3383</b></p>
+  </mat-menu>
+  Ajuda
+  <div class="usuario">
+    Alfred Pennyworth<br>
+    <small>Wayne Enterprises</small>
+  </div>
+  <button mat-icon-button>
+    <mat-icon>keyboard_arrow_down</mat-icon>
+  </button>
+</mat-toolbar>
+<div class="container">
+  <router-outlet></router-outlet>
+</div>

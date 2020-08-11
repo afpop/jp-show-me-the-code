@@ -1,0 +1,61 @@
+<form #form="ngForm" class="example-container" [formGroup]="solicitacaoForm" (submit)="submit()">
+    <h1>Nova soliticação</h1>
+    <h2>Insira aqui dos dados cadastrais para uma nova solicitação</h2>
+    <mat-form-field appearance="legacy">
+        <mat-label>Empresa</mat-label>
+        <input matInput formControlName="empresa" required>
+        <mat-error *ngIf="solicitacaoForm.controls.empresa.touched && solicitacaoForm.controls.empresa.invalid">
+            <span *ngIf="solicitacaoForm.controls.empresa.errors.required">Este campo é obrigatório.</span>
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="legacy">
+        <mat-label>CNPJ</mat-label>
+        <input matInput formControlName="cnpj" required>
+        <mat-error *ngIf="solicitacaoForm.controls.cnpj.touched && solicitacaoForm.controls.cnpj.invalid">
+            <span *ngIf="solicitacaoForm.controls.cnpj.errors.required">Este campo é obrigatório.</span>
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="legacy">
+        <mat-label>Plano</mat-label>
+        <mat-select formControlName="plano" required>
+            <mat-option *ngFor="let plano of planos" [value]="plano.descricao">
+                {{plano.descricao}}
+            </mat-option>
+        </mat-select>
+        <mat-error *ngIf="solicitacaoForm.controls.plano.touched && solicitacaoForm.controls.plano.invalid">
+            <span *ngIf="solicitacaoForm.controls.plano.errors.required">Este campo é obrigatório.</span>
+        </mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="legacy">
+        <mat-label>Tarifa</mat-label>
+        <input matInput formControlName="tarifa" required>
+        <mat-error *ngIf="solicitacaoForm.controls.tarifa.touched && solicitacaoForm.controls.tarifa.invalid">
+            <span *ngIf="solicitacaoForm.controls.tarifa.errors.required">Este campo é obrigatório.</span>
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="legacy">
+        <mat-label>Minutos</mat-label>
+        <input matInput formControlName="minutos" required>
+        <mat-error *ngIf="solicitacaoForm.controls.minutos.touched && solicitacaoForm.controls.minutos.invalid">
+            <span *ngIf="solicitacaoForm.controls.minutos.errors.required">Este campo é obrigatório.</span>
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="legacy">
+        <mat-label>Valor do plano</mat-label>
+        <input matInput formControlName="valorPlano" required>
+        <mat-error *ngIf="solicitacaoForm.controls.valorPlano.touched && solicitacaoForm.controls.valorPlano.invalid">
+            <span *ngIf="solicitacaoForm.controls.valorPlano.errors.required">Este campo é obrigatório.</span>
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="legacy">
+        <mat-label>Data adesão</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="dataAdesao" required>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-error *ngIf="solicitacaoForm.controls.dataAdesao.touched && solicitacaoForm.controls.dataAdesao.invalid">
+            <span *ngIf="solicitacaoForm.controls.dataAdesao.errors.required">Este campo é obrigatório.</span>
+        </mat-error>
+    </mat-form-field>
+    <button type="submit" mat-raised-button color="primary" class="text-white">Adicionar solicitação</button>
+</form>

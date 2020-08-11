@@ -1,0 +1,43 @@
+<h1>Minhas solicitações</h1>
+<h2>Aqui você pode acompanhar o andamento de suas solicitações</h2>
+<mat-spinner *ngIf="!loaded"></mat-spinner>
+<table *ngIf="loaded" mat-table [dataSource]="solicitacoes">
+    <ng-container matColumnDef="ID">
+        <th mat-header-cell *matHeaderCellDef> ID </th>
+        <td mat-cell *matCellDef="let element"> {{element._id}} </td>
+    </ng-container>
+    <ng-container matColumnDef="Empresa">
+        <th mat-header-cell *matHeaderCellDef> Empresa </th>
+        <td mat-cell *matCellDef="let element"> {{element.empresa}} </td>
+    </ng-container>
+    <ng-container matColumnDef="Plano">
+        <th mat-header-cell *matHeaderCellDef> Plano </th>
+        <td mat-cell *matCellDef="let element"> {{element.plano}} </td>
+    </ng-container>
+    <ng-container matColumnDef="Tarifa">
+        <th mat-header-cell *matHeaderCellDef> Tarifa </th>
+        <td mat-cell *matCellDef="let element"> {{element.tarifa | currency:'BRL':true}} </td>
+    </ng-container>
+    <ng-container matColumnDef="Minutos">
+        <th mat-header-cell *matHeaderCellDef> Minutos </th>
+        <td mat-cell *matCellDef="let element"> {{element.minutos}} </td>
+    </ng-container>
+    <ng-container matColumnDef="Valor plano">
+        <th mat-header-cell *matHeaderCellDef> Valor plano </th>
+        <td mat-cell *matCellDef="let element"> {{element.valorPlano | currency:'BRL':true}} </td>
+    </ng-container>
+    <ng-container matColumnDef="Data de adesão">
+        <th mat-header-cell *matHeaderCellDef> Data de adesão </th>
+        <td mat-cell *matCellDef="let element"> {{element.dataAdesao | date: 'dd/MM/yyyy'}} </td>
+    </ng-container>
+    <ng-container matColumnDef="Data de envio">
+        <th mat-header-cell *matHeaderCellDef> Data de envio </th>
+        <td mat-cell *matCellDef="let element"> {{element.dataEnvio | date: 'dd/MM/yyyy'}} </td>
+    </ng-container>
+    <ng-container matColumnDef="Ação">
+        <th mat-header-cell *matHeaderCellDef> Ação </th>
+        <td mat-cell *matCellDef="let element"> ... </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
